@@ -1,12 +1,11 @@
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
 from mangum import Mangum
 
 app = FastAPI()
 
 @app.get("/")
-def home():
-    return HTMLResponse("<h1>Business AI is LIVE 🚀</h1>")
+def root():
+    return {"status": "Business AI LIVE"}
 
-# 🔑 THIS IS THE KEY LINE
+# 🚨 THIS NAME MUST BE EXACT
 handler = Mangum(app)
